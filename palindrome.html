@@ -33,12 +33,14 @@
 
             const showInput = document.getElementById('showInput').innerText = inputValue;
             
-            const strArray = inputValue.split('');
+            const string = inputValue.toLowerCase();
+            console.log(string);
+            const strArray = string.split('');
             const strReverse = strArray.reverse();
             const reverseStr = strReverse.join('');
 
-            if (inputValue == reverseStr) {
-                if (inputValue.length % 2 == 0) {
+            if (string == reverseStr) {
+                if (string.length % 2 == 0) {
                     document.getElementById('showOutput').innerText = 'an even';
                 }
                 else{
