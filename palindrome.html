@@ -30,46 +30,25 @@
     <script>
         document.getElementById('submitBtn').addEventListener('click', () => {
             const inputValue = document.getElementById('inputValue').value;
-            console.log(inputValue);
+
+            const showInput = document.getElementById('showInput').innerText = inputValue;
+            
             const strArray = inputValue.split('');
-            console.log(strArray);
             const strReverse = strArray.reverse();
-            console.log(strReverse);
             const reverseStr = strReverse.join('');
-            console.log(reverseStr);
+
             if (inputValue == reverseStr) {
                 if (inputValue.length % 2 == 0) {
-                    document.getElementById('showOutput').innerText = 'even';
+                    document.getElementById('showOutput').innerText = 'an even';
                 }
                 else{
-                    document.getElementById('showOutput').innerText = 'odd';
+                    document.getElementById('showOutput').innerText = 'an odd';
                 }
             }
+
             else{
                 document.getElementById('showOutput').innerText = 'not a';
             }
-            
-            // function checkPalindrome(str) {
-
-            //     // convert string to an array
-            //     const arrayValues = string.split('');
-
-            //     // reverse the array values
-            //     const reverseArrayValues = arrayValues.reverse();
-
-            //     // convert array to string
-            //     const reverseString = reverseArrayValues.join('');
-            
-            //     if (string == reverseString) {
-            //         document.getElementById('showOutput').innerText = 'a';
-            //     }
-            //     else {
-            //         document.getElementById('showOutput').innerText = 'not a';
-            //     }
-            // }
-            // checkPalindrome(inputValue);
-
-            const showInput = document.getElementById('showInput').innerText = inputValue;
 
             document.getElementById('inputValue').value = '';
         })
