@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<style>
+    .container {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h1>Fibonacci Sequence</h1>
+        <div class="input">
+            <input type="number" name="number" id="inputNum">
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
+        <div class="output">
+            <h3>Fibonacci number <span id="showInput">00</span> sequence is = <span id="showOutput">00</span></h3>
+            <h3>Fibonacci number <span id="showInput1">00</span> sum is = <span id="showFebunacci">00</span></h3>
+        </div>
+    </div>
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.addEventListener('click', () => {
+            const inputNum = parseInt(document.getElementById('inputNum').value);
+
+            
+            if (2 > inputNum || inputNum > 19) {
+                alert('Please input within 2-19 value')
+            }
+            else {
+                const showInput = document.getElementById('showInput').innerText = inputNum;
+                const showInput1 = document.getElementById('showInput1').innerText = inputNum;
+
+                const fibonacci = n => {
+                    if (n === 1) {
+                        return [0, 1]
+                    }
+                    else {
+                        let s = fibonacci(n - 1);
+                        s.push(s[s.length - 1] + s[s.length - 2]);
+                        return s;
+                    }
+                }
+
+                const result = fibonacci(inputNum);
+                const showOutput = document.getElementById('showOutput').innerText = result;
+
+                    let sum = 0;
+                    for (let i = 0; i < showOutput.length; i++) {
+                        sum += showOutput[i];
+                    }
+                    console.log(sum);
+                    document.getElementById('showFebunacci').innerText = sum;
+                
+            }
+
+            document.getElementById('inputNum').value = '';
+        })
+    </script>
+</body>
+
+</html>

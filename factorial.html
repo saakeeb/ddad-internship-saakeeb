@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+    <style>
+        .container{
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Factorial Calculator</h1>
+        <div class="input">
+            <input type="number" name="number" id="inputNum">
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
+        <div class="output">
+            <h3>Factorial <span id="showInput">00</span>! output is <span id="showOutput">00</span></h3>
+        </div>
+    </div>
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.addEventListener('click', () => {
+            const inputNum = parseInt(document.getElementById('inputNum').value);
+            if (1 > inputNum || inputNum > 9) {
+                alert('Please input within 1-9 value');
+            }
+            else {
+                const showInput = document.getElementById('showInput').innerText = inputNum;
+                const factorial = n => !(n > 1) ? 1 : factorial(n - 1) * n;
+                const result = factorial(inputNum);
+                const showOutput = document.getElementById('showOutput').innerText = result;
+            }
+
+            document.getElementById('inputNum').value = '';
+        })
+    </script>
+</body>
+
+</html>

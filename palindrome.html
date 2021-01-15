@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+
+    <style>
+        .container {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Palindrome</h1>
+        <div class="input">
+            <input type="text" name="text" id="inputValue">
+            <button type="submit" id="submitBtn">Submit</button>
+        </div>
+        <div>
+            <h3><span id="showInput">word</span> is <span id="showOutput">not a</span> palindrome</h3>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            const inputValue = document.getElementById('inputValue').value;
+            console.log(inputValue);
+            const strArray = inputValue.split('');
+            console.log(strArray);
+            const strReverse = strArray.reverse();
+            console.log(strReverse);
+            const reverseStr = strReverse.join('');
+            console.log(reverseStr);
+            if (inputValue == reverseStr) {
+                if (inputValue.length % 2 == 0) {
+                    document.getElementById('showOutput').innerText = 'even';
+                }
+                else{
+                    document.getElementById('showOutput').innerText = 'odd';
+                }
+            }
+            else{
+                document.getElementById('showOutput').innerText = 'not a';
+            }
+            
+            // function checkPalindrome(str) {
+
+            //     // convert string to an array
+            //     const arrayValues = string.split('');
+
+            //     // reverse the array values
+            //     const reverseArrayValues = arrayValues.reverse();
+
+            //     // convert array to string
+            //     const reverseString = reverseArrayValues.join('');
+            
+            //     if (string == reverseString) {
+            //         document.getElementById('showOutput').innerText = 'a';
+            //     }
+            //     else {
+            //         document.getElementById('showOutput').innerText = 'not a';
+            //     }
+            // }
+            // checkPalindrome(inputValue);
+
+            const showInput = document.getElementById('showInput').innerText = inputValue;
+
+            document.getElementById('inputValue').value = '';
+        })
+    </script>
+</body>
+
+</html>
